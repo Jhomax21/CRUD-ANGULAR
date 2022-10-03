@@ -1,0 +1,66 @@
+
+<body>
+    <header class="header">
+           <div class="container logo-nav">
+             <figure class="logo">
+               <figcaption class="nombre-logo notranslate">Knowledges App</figcaption>
+           </figure>
+               <!--Navigation-->
+               <nav class="navbar">
+                 <ul>
+                  <li><a routerLink="/home">HOME</a></li>
+                  <li><a routerLink="/business/knowledges">Knowledges</a></li>
+                 </ul>
+               </nav>
+         </div>
+       </header>
+
+
+       <section class="container">
+<div class="container" >
+
+    <h1>Knowledges</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="id" [(ngModel)]="knowledges.id">
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>TITULO</mat-label>
+      <input matInput required placeholder="titulo" [(ngModel)]="knowledges.titulo">
+  
+    </mat-form-field>
+  
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>URL</mat-label>
+        <input matInput required placeholder="url" [(ngModel)]="knowledges.url">
+      </mat-form-field>
+    
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>SUMARY</mat-label>
+        <input matInput required placeholder="sumary" [(ngModel)]="knowledges.sumary">
+      </mat-form-field>
+    
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>CONTENT</mat-label>
+        <input matInput required placeholder="content" [(ngModel)]="knowledges.content">
+      </mat-form-field>
+    
+      <br>
+
+    
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/business/knowledges">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
+</section>
+  </body>
+
+  
