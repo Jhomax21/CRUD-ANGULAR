@@ -1,0 +1,213 @@
+*Primero instalar esto:
+ng add @angular/material
+
+npm install json-server --save
+
+"server": "json-server --port 5000 --watch data.js"
+
+*Luego generar los componentes:
+
+- Tambien crear un "model" y poner ahi el "nombre.ts"
+ng g service service/knowledges --skip-tests
+ng g c page/knowledges --skip-tests
+ng g c page/knowledges/knowledges-listar --skip-tests
+ng g c page/knowledges/knowledges-creaedita --skip-tests
+ng g c page/knowledges/knowledges-buscar --skip-tests
+ng g c page/knowledges/knowledges-listar/knowledges-dialogo --skip-tests
+
+*Luego poner los datos en el model "nombre.ts":
+
+export class knowledges{
+    id: number=0
+    titulo: string=""
+    url: string=""
+    sumary: string=""
+    content: string=""
+}
+
+*Luego ir a nombre-listar.component.ts y cambiar todo:
+
+Comparar con ruta: "   "
+- Hacer el buscar y remplazar con Ctrl+H, tener cuidado con las mayusculas
+- Poner los import {}
+- Cambiar el displayed columns y borrar el comentario que dice //cambiar
+
+*Luego ir a nombre.component.html y cambiar por:
+
+- Buscar y remplazar "agricultor"
+<router-outlet></router-outlet>
+<div [hidden]="route.children.length!==0">
+    <app-agricultor-listar></app-agricultor-listar>
+</div>
+
+*Luego ir a nombre.service.ts y cambiar todo por:
+Comparar con la ruta: "   "
+- Poner los import, sobro todo el import { knowledges } from  '../model/knowledges'
+- Hacer el buscar y remplazar, tener cuidado con las mayusculas
+
+*Luego ir a nombre.component.ts y agregar este import:
+
+import { ActivatedRoute } from '@angular/router';
+
+- Luego agregar entre los parentesis del contructor:
+
+constructor(public route:ActivatedRoute)
+
+*Luego ir a app-routing.module.ts y hacer esto:
+
+Comparar con la ruta " "
+- Al import {NgModule} cambiarlo por import {NgModule, Component}
+- Despues de eso agregar los import:
+
+import { knowledges } from 'src/app/model/knowledges';
+import { KnowledgesComponent } from './page/knowledges/knowledges.component';
+import { KnowledgesCreaeditaComponent } from './page/knowledges/knowledges-creaedita/knowledges-creaedita.component';
+
+- Luego de eso poner los path que deseemos:
+//El path knowledges como tiene componente knowledgescomponent
+pues al ir ahi se le dirigira a ese componente, si fuera
+knowledgescreaeditacomponent, le dirigiria al componente de editar
+
+const routes: Routes = [
+  {
+    path: 'business', component: KnowledgesComponent, children: [
+  
+      { path: 'knowledges', component: KnowledgesComponent },  
+    ]
+  },
+
+];
+
+- Solo se hace cambios en los import y const rules, lo demas queda igual.
+
+*Luego cambiar el app.component.html:
+- Poner a donde quieres que te lleve la aplicación por defecto:
+Ejemplo: En este caso quiero que me dirija defrente al knowledges por defecto
+<app-knowledges></app-knowledges>
+
+*Luego ir a app.module.ts y agregar en los import:
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
+- Luego ir a los import de abajo y borrar todo y agregar:
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatTableModule,
+    FormsModule,
+    MatButtonModule,
+    FormsModule,
+    MatIconModule,
+    MatInputModule,
+    MatDialogModule
+
+*Luego ir al index.html de abajo y agregar abajo de el ultimo link esto:
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+*Luego creamos un data.js desde la carpeta y agregamos nuestro json, EJEMPLO:
+
+module.exports = function () {
+  var data = {
+    propietarios: [
+      {
+        id:1,
+        namePropietario: "Luisa",
+        emailPropietario: "luisa@gmail.com"
+      },
+      {
+        id:2,
+        namePropietario: "Juana",
+        emailPropietario: "Juana@gmail.com",
+      },
+      {
+        id:3,
+        namePropietario: "Pedro",
+        emailPropietario: "Pedro@gmail.com",
+      },
+      {
+        id:4,
+        namePropietario: "Jesus",
+        emailPropietario: "Jesus@gmail.com",
+      }
+    ]
+  
+  }
+
+  return data
+}
+
+
+*Agregar el css:
+
+Agregar la ruta " "
+
+Header -> color es para el color de letras, background: color de fondo del encabezado
+Header a -> es para el color de letras del subtitulo
+Navbar ul li a:hover -> Es para el color al pasar el cursor por un subtitulo
+th -> Para cambiar el color de la tabla
+
+*Luego ir al knoledges-listar.component.html y hacer esto:
+- Agregar y comparar con ruta "   "
+-Agregar las tablas que faltan, en el que los nombres que estan entre comillas, deben ser cambiados por los nombres que estan en el .TS, la siguiente linea debe ser cambiada por el nombre que queramos que se vea en la tabla al compilarlo y finalmente la siguiente linea "knowledges.content" se cambia por los nombres que estan en la carpeta "model".
+-cambiar el <app-nombre-buscar>, cambiando el nombre por la ruta que se utilizara
+-Agregar los botones del header y poner las rutas correspondientes
+
+*HASTA AHI YA ESTARIA TODO EL LISTAR, PERO FALTARIA AGREGAR EL DIALOGO, BUSCAR, INSERTAR Y EDITAR*
+
+*Ahora para el creedita en knowledges-creaedita.css
+- Se copia y pega el mismo css que esta en el listar
+*Luego ir al knowledges-creaedita.ts y hacer esto:
+- Agregar la ruta " "
+- Buscar y remplazar, tener cuidado con las mayusculas y minusculas
+- Cambiar la ruta a la que ira ejemplo business/knowledges
+*Luego ir al knowledges-creaedita.html y hacer esto
+- Agregar la ruta " "
+- Agregar las tablas, cambiar lo que esta entre " " y cambiar el "nombre.titulo"
+- Cambiar la ruta del boton cancelar
+*Luego ir al knowledges-listar.component.html y cambiar la ruta que ira al presionar "Insertar o +1"
+*Luego ir al app routing module para cambiar los path de las rutas e insertarlos en los anteriores pasos mencionados
+*Para el actualizar, igual depende de los paths que nos manden cambiamos los path, hacer cambios de ruta en la tabla de edicion del knowledges-listar.component.html
+
+*HASTA AHI YA TENEMOS EL LISTAR, INSERTAR Y ACTUALIZAR¡
+
+*Ahora nos vamos al eliminar para eso tendremos que hacer esto:
+- Se agrega el nombre-dialogo.component.html de la ruta " "
+*Nos vamos al nombre-dialogo.component.ts y solo buscamos y remplazamos, nuevamente tener cuidado con las mayusculas.
+
+*HASTA AHI YA HEMOS AGREGADO EL ELIMINAR*
+
+*Ahora nos vamos al buscar para eso tendremos que hacer esto:
+- Se agrega el nombre-buscar.component.html de la ruta " "
+*Nos vamos al nombre-buscar.component.ts y solo buscamos y remplazamos, nuevamente tener cuidado con las mayusculas.
+
+*CON ESO YA TENDRIAMOS TODOS LOS CRUD
+
+*COMPARAR LOS PATH, TENER MUCHO CUIDADO CON ESO
+
+*CAMBIAR BOTONES DE AGREGAR, ELIMINAR Y EDITAR CON ICONOS DE ANGULAR MATERIAL
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
