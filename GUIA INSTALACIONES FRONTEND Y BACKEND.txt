@@ -1,0 +1,62 @@
+Frontend
+ - Editor de código Visual de Studio Code: 
+   - Descarga: https://code.visualstudio.com/download
+   - Instalación: https://support.academicsoftware.eu/hc/es/articles/360006916138-C%C3%B3mo-instalar-Microsoft-Visual-Studio-Code
+
+ - NodeJS
+   - Descarga la versión LTS: https://nodejs.org/es/
+   - Instalación: https://kinsta.com/es/blog/como-instalar-node-js/#cmo-instalar-nodejs-en-windows
+                  https://www.youtube.com/watch?v=lF7qVQJPbS8
+
+ - Angular CLI
+   - Instalación: 
+         https://angular.io/cli
+         https://www.youtube.com/watch?v=8LvLIlm2PWc
+
+ - Plugin a instalar Visual Studio Code 
+    - Angular Language Service
+    - Rainbow Brackets
+    - Material Icon Theme
+    - Material Theme Icons
+    - Auto import
+    - Tag
+
+
+Backend
+ - JDK 17 y configurar variable de entorno JAVA_HOME
+   - Descarga: https://download.oracle.com/java/17/archive/jdk-17.0.4_windows-x64_bin.exe
+   - Instalación: https://youtu.be/0FXl5rBwNVk   se explica con Java 18 pero el procedimiento es similar para java 17
+
+ - IntelliJ IDEA Ultimate
+   - Descarga: https://www.jetbrains.com/es-es/idea/download/#section=windows
+   - Crear una cuenta utilizando correo UPC para obtener licencia académica
+     https://account.jetbrains.com/login
+
+Gestor de base de datos
+ - PostgreSQL
+   - Descarga: https://www.postgresql.org/download/
+   - Instalación: https://www.youtube.com/watch?v=n5Ec9bMouWQ
+
+Sistema de control de versiones
+  - Git
+    - Descarga: https://git-scm.com/download/win
+    - Instalación: https://www.youtube.com/watch?v=cYLapo1FFmA
+
+  - GitHub
+    - Deben crear su cuenta en https://github.com/
+
+Plataforma como servicio: Despliegue de frontend
+    - Crear su cuenta en: https://app.netlify.com/signup?_ga=2.46829159.1307763990.1660798479-555668137.1632496225
+
+
+Plataforma como servicio: Despliegue de backend
+  - Heroku
+     - Deben crear su cuenta: https://signup.heroku.com/
+  - Heroku CLI
+     - Descargar: https://devcenter.heroku.com/articles/heroku-cli
+     - Instalación: https://www.youtube.com/watch?v=qrM4RZnepS4
+
+ 
+
+
+    
