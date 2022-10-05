@@ -1,4 +1,9 @@
 *Primero instalar esto:
+Instalar typescript con los comandos "Buscar en internet"
+Instalar angular con los comandos "Buscar en internet"
+Quitar las restricciones en el porwershell con los comando -setexecutionpolitian etc
+Instalar algunas extensiones que estan en la guia de instalaciones
+Instalar boostrap 5, poner el cdn en el html o con el comando "buscar en internet"
 ng add @angular/material
 npm install
 npm install json-server --save
